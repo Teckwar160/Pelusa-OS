@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
+//FIXME Mantengo comentada esta librería para que no entre en conflicto con todas las funciones duplicadas
+//#include "manejoDeUsuarios.h"
 
 using namespace std;
 //Definicion de procesos
@@ -29,6 +31,8 @@ int main (){
 
 //Zona de procesos
 
+
+//FIXME Todas esas funciones deben de ir en la librería manejoDeUsuarios.h
 /*Bienvenida*/
 
 void bienvenida (){
