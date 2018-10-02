@@ -30,6 +30,7 @@ void bienvenida (){
 	char decision;
 
  while (decision == 'a','A' or decision == 'b','B'){ //Bucle que hace que solo puedan usar dos opciones
+ 	system("clear");
  	cout << "\tPelusa OS 0.01" << endl << endl; //Mensaje del sistema
 
  	cout << "Elija una opcion"<< endl;
@@ -38,10 +39,12 @@ void bienvenida (){
  	cout << "=> "; cin >> decision;
 
  	if (decision == 'A' or decision == 'a'){ //En caso de que sea la primera
+ 		system("clear");
  		login (); break;
  	}
 
  	if (decision == 'B' or decision == 'b'){ //En caso que sea la segunda
+ 		system("clear");
  		registro (); break;
  	}
  }
@@ -52,10 +55,19 @@ void bienvenida (){
 
 void registro(){
 	ofstream archivo; //Libreria que maneja los archivos txt
-	string usuario,contra; //Usuario y contraseña escritos por el usuario
+	string usuario,contra,lectura_usuario; //Usuario y contraseña escritos por el usuario
+	ifstream comprobador;
+	bool user_doble;
+	bool salida;
 
 	system("clear");
+	do{
+	user_doble = false;
+	salida = false;
 	archivo.open("usuarios.txt",ios::app); //Crea el archvio sino existe y si existe solo lo abre
+	comprobador.open("usuarios.txt"); //Comprobador de disponibilidad del nombre de usuario
+	comprobador >> lectura_usuario;
+
 
     //Condicion por si falla el docuemento
 	if (archivo.fail()){
@@ -70,17 +82,37 @@ void registro(){
 	cin >> contra;
 	cin.ignore ();
 
-	archivo << usuario << " " << contra << endl << endl; //Los guarda en el txt
-	archivo.close();                                     //Se cierra el archivo
-   system("clear");
+	while(!comprobador.eof()){  //Comprobador 
+		if (lectura_usuario == usuario){ //Si existe ya el nombre manda mensaje de error
+			system("clear");
+			cout << "Aviso: El usuario ya esta en uso" << endl << endl;
+			user_doble = true;
+
+		}
+		comprobador >> lectura_usuario;
+	}
+
+	if (user_doble == false){ //Si esta disponible guarda la informacion
+		archivo << usuario << " " << contra << endl << endl;
+		salida = true;
+	}
+
+	archivo.close();             //Se cierra el archivo
+	comprobador.close();         //Se cierra el comprobador
+    }while(user_doble != false);
+
+   if (salida == true){
+   	system("clear");
    cout << "Aviso: Usuario Registrado" << endl<< endl; //Mensaje del sistema
-   return bienvenida ();                               //Regresa al menu de bienvenida
+   return bienvenida ();    //Regresa al menu de bienvenida
+   }                           
 }
 
 /*Login*/ 
 
 void login (){
 	bool validacion = false; //Valida el inicio de sesion 
+	bool error_inicio = false;
 	ifstream archivo; 
 	string usuario,lectura_usuario,contra,lectura_contra; //variables de lectura adelantada y variables metidas por el usuario
 
@@ -98,8 +130,15 @@ void login (){
         archivo >> lectura_contra; //LEctura adelantada de la contraseña
 		if (lectura_usuario == usuario and lectura_contra == contra){ //Si coinciden valida el inisio de sesion
 			validacion = true; break;
+		}else{
+			error_inicio = true; //Manda error si esta mal el ususario io la contraseña
 		}
 		archivo >> lectura_usuario; //Lectura del usuario esta linea evita errores con las contraseña de los usuarios
+	}
+
+	if (error_inicio = true){ //Mensaje de error
+		system("clear");
+		cout << "Aviso: Usuario io contraseña incorrectos" << endl << endl;
 	}
 
 	archivo.close (); //Cierra el archivo
