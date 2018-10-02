@@ -25,10 +25,10 @@ void bienvenida (){
   //char version[6]='canary';
   int oportunidades=1, limiteO=3;
 
- while (oportunidades <=limiteO){ //Bucle que hace que solo puedan usar dos opciones, y da solamente 3 oportunidades
+  while (oportunidades <=limiteO){ //Bucle que hace que solo puedan usar dos opciones, y da solamente 3 oportunidades
 
    //FIXME: Resolver variable version
-	 	cout << "\nPelusa OS 0.01-canary"<< endl << endl; //Mensaje del sistema
+	 	cout << "Pelusa OS 0.01-canary"<< endl << endl; //Mensaje del sistema
 
 	 	cout << "Elija una opcion"<< endl;
 	 	cout << "\ta) Usuario Registrado" << endl     //Opciones que puede elegir
@@ -43,12 +43,14 @@ void bienvenida (){
     }else {
 
       if (oportunidades<limiteO) {
+        system("clear");
         cout << "Por favor, introduce una opción válida"<<endl;
         cout << "Intenta nuevamente \n" << endl;
         oportunidades+=1;
-        cout << "Te quedan "<< limiteO-oportunidades << " oportunidades, después el sistema se bloqueará";
+        cout << "Te quedan "<< limiteO-oportunidades << " oportunidades, después el sistema se bloqueará\n";
       }else {
-        cout << "El límite de posibilidades se ha excedido, sistema bloqueado";
+        system("clear");
+        cout << "El límite de posibilidades se ha excedido, sistema bloqueado\n";
         oportunidades+=1;
       }
 
@@ -56,7 +58,7 @@ void bienvenida (){
 
   }
 
- system("clear");
+
 
 }
 
