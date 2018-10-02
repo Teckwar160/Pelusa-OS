@@ -13,7 +13,9 @@ void login ();
 //Zona de Variables
 
 bool control = false;
+//char pelusaOSVersion = '0.01-canary';
 
+//Aquí empieza el main
 int main (){
 	if (control == false){
 		bienvenida();
@@ -21,6 +23,7 @@ int main (){
 
 	cout << "Bienvenido a Pelusa OS" << endl;
 }
+//Aquí termina el main
 
 //Zona de procesos
 
@@ -30,7 +33,7 @@ void bienvenida (){
 	char decision;
 
  while (decision == 'a','A' or decision == 'b','B'){
- 	cout << "\tPelusa OS 0.01" << endl << endl;
+ 	cout << "\t 0.01-canary" << endl << endl;
 
  	cout << "Elija una opcion"<< endl;
  	cout << "\ta) Usuario Registrado" << endl
@@ -63,10 +66,10 @@ void registro(){
 		exit (1);
 	}
 
-	cout <<"\tEscriba un nombre de usuario: "; 
+	cout <<"\tEscriba un nombre de usuario: ";
 	cin >> usuario;
 	cin.ignore();
-	cout << "\tEscriba una contraseña: "; 
+	cout << "\tEscriba una contraseña: ";
 	cin >> contra;
 	cin.ignore ();
 
@@ -77,7 +80,7 @@ void registro(){
    return bienvenida ();
 }
 
-/*Login*/ 
+/*Login*/
 
 void login (){
 	bool validacion = false;
@@ -87,11 +90,11 @@ void login (){
 	do{
     archivo.open("usuarios.txt",ios::out);
     archivo >> lectura_usuario;
-	cout <<"\tUsuario: "; 
-	cin >> usuario; 
+	cout <<"\tUsuario: ";
+	cin >> usuario;
 	cin.ignore ();
-	cout <<"\tContraseña: "; 
-	cin >> contra; 
+	cout <<"\tContraseña: ";
+	cin >> contra;
 	cin.ignore ();
 
 	while(!archivo.eof()){
@@ -108,6 +111,6 @@ void login (){
     if (validacion == true){
     	system("clear");
     	control = true;
-    	
+
     }
 }
