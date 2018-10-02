@@ -21,24 +21,43 @@ bool control = false; //variable que controla la entrada al sistema
 
 void bienvenida (){
 	char decision;
+  //FIXME: Hay que resolver esta variable, no me permite mostrar la cadena de texto completa
+  //char version[6]='canary';
+  int oportunidades=1, limiteO=3;
 
- while (decision == 'a','A' or decision == 'b','B'){ //Bucle que hace que solo puedan usar dos opciones
-	 	cout << "\tPelusa OS 0.01" << endl << endl; //Mensaje del sistema
+ while (oportunidades <=limiteO){ //Bucle que hace que solo puedan usar dos opciones, y da solamente 3 oportunidades
+
+   //FIXME: Resolver variable version
+	 	cout << "\nPelusa OS 0.01-canary"<< endl << endl; //Mensaje del sistema
 
 	 	cout << "Elija una opcion"<< endl;
 	 	cout << "\ta) Usuario Registrado" << endl     //Opciones que puede elegir
 	 	     << "\tb) Usuario No Registrado" << endl;
 	 	cout << "=> "; cin >> decision;
 
-	 	if (decision == 'A' or decision == 'a'){ //En caso de que sea la primera
+    /* He modificado el condicional para que tome en cuenta la posibilidad de que el usuario no introduzca una opción válida, devuelva un mensaje pidiendo que lo intente de nuevo, y poniendo un máximo de 3 oportunidades */
+	 	if (decision == 'A' or decision == 'a'){
 	 		login (); break;
-	 	}
+	 	}else if(decision == 'B' or decision == 'b'){
+      registro (); break;
+    }else {
 
-	 	if (decision == 'B' or decision == 'b'){ //En caso que sea la segunda
-	 		registro (); break;
-	 	}
+      if (oportunidades<limiteO) {
+        cout << "Por favor, introduce una opción válida"<<endl;
+        cout << "Intenta nuevamente \n" << endl;
+        oportunidades+=1;
+        cout << "Te quedan "<< limiteO-oportunidades << " oportunidades, después el sistema se bloqueará";
+      }else {
+        cout << "El límite de posibilidades se ha excedido, sistema bloqueado";
+        oportunidades+=1;
+      }
+
+    }
+
   }
+
  system("clear");
+
 }
 
 /*Registro*/

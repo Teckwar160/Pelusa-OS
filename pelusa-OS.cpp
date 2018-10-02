@@ -14,9 +14,13 @@ using namespace std;
 int main (){
 	if (control == false){ //Si no se a iniciado sesion entra al menu de bienvenida
 		bienvenida();
+	}else if (control==true) {
+		cout << "Has accedido al sistema" << endl;
+		cout << "Bienvenido a Pelusa OS" << endl;
+	}else {
+		cout << "La validación ha fallado";
 	}
 
-	cout << "Bienvenido a Pelusa OS" << endl; //En caso contrario ya entra al sistema
 
 }
 //Aquí termina el main
