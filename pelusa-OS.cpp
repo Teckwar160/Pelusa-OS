@@ -2,24 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
+#include "manejoDeUsuarios.h"
 
 using namespace std;
 //Definicion de procesos
 
-void bienvenida (); //Menu de bienvenida al usuario
-void registro(); //Menu de registro de usuarios
-void login (); //Menu para iniciar sesion de usuarios
 
-//Zona de Variables
 
-bool control = false; //variable que controla la entrada al sistema
 
+//Aquí empieza el main
 int main (){
 	if (control == false){ //Si no se a iniciado sesion entra al menu de bienvenida
 		bienvenida();
 	}
 
 	cout << "Bienvenido a Pelusa OS" << endl; //En caso contrario ya entra al sistema
+<<<<<<< HEAD
 }
 
 //Zona de procesos
@@ -150,3 +148,8 @@ void login (){
     	
     }
 }
+=======
+
+}
+//Aquí termina el main
+>>>>>>> e6b7e551af550f147f13a292d4fda8498dfd48ba
