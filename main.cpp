@@ -5,11 +5,9 @@
 int main (){
 	if (control == false){ //Si no se a iniciado sesion entra al menu de bienvenida
 		bienvenida();
+	}else {
+		cout << "Bienvenido a Pelusa OS" << endl; //En caso contrario ya entra al sistema
 	}
-
-
-
-	cout << "Bienvenido a Pelusa OS" << endl; //En caso contrario ya entra al sistema
 
 
 	return 0;
