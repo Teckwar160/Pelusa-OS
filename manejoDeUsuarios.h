@@ -1,9 +1,4 @@
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <fstream>
 
-using namespace std;
 //Definicion de procesos
 
 void bienvenida (); //Menu de bienvenida al usuario
@@ -60,6 +55,25 @@ void registro(){
 	comprobador.open("usuarios.txt"); //Comprobador de disponibilidad del nombre de usuario
 	comprobador >> lectura_usuario;
 
+	/*
+	//islower example
+
+			int main ()
+			{
+			  int i=0;
+			  char str[]="Test String.\n";
+			  char c;
+			  while (str[i])
+			  {
+			    c=str[i];
+			    if (islower(c)) c=toupper(c);
+			    putchar (c);
+			    i++;
+			  }
+			  return 0;
+			}
+	*/
+
 
     //Condicion por si falla el docuemento
 	if (archivo.fail()){
@@ -71,11 +85,11 @@ void registro(){
 	cout <<"\tEscriba un nombre de usuario: ";  //Ingresa su usuario y contraseña
 	cin >> usuario;
 	cin.ignore();
-	cout << "\tEscriba una contraseña: "; 
+	cout << "\tEscriba una contraseña: ";
 	cin >> contra;
 	cin.ignore ();
 
-	while(!comprobador.eof()){  //Comprobador 
+	while(!comprobador.eof()){  //Comprobador
 		if (lectura_usuario == usuario){ //Si existe ya el nombre manda mensaje de error
 			system("clear");
 			cout << "Aviso: El usuario ya esta en uso" << endl << endl;
@@ -98,25 +112,25 @@ void registro(){
    	system("clear");
    cout << "Aviso: Usuario Registrado" << endl<< endl; //Mensaje del sistema
    return bienvenida ();    //Regresa al menu de bienvenida
-   }                           
+   }
 }
 
-/*Login*/ 
+/*Login*/
 
 void login (){
-	bool validacion = false; //Valida el inicio de sesion 
+	bool validacion = false; //Valida el inicio de sesion
 	bool error_inicio = false;
-	ifstream archivo; 
+	ifstream archivo;
 	string usuario,lectura_usuario,contra,lectura_contra; //variables de lectura adelantada y variables metidas por el usuario
 
 	do{
     archivo.open("usuarios.txt",ios::out); //Abre el archivo en mode de lectura
     archivo >> lectura_usuario; //Lectura adelantada del usuario
-	cout <<"\tUsuario: "; 
-	cin >> usuario; 
+	cout <<"\tUsuario: ";
+	cin >> usuario;
 	cin.ignore ();
-	cout <<"\tContraseña: "; 
-	cin >> contra; 
+	cout <<"\tContraseña: ";
+	cin >> contra;
 	cin.ignore ();
 
 	while(!archivo.eof()){ //Bucle que mientras el archivo no se haya leido completamente haga
@@ -140,6 +154,6 @@ void login (){
     if (validacion == true){ //Valida la entrada al sistema
     	system("clear");
     	control = true;
-    	
+
     }
 }
