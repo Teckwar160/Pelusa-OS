@@ -67,6 +67,7 @@ void registro(){
 		exit (1);
 	}
 
+    cout << "Nota: El usuario y la contraseña no pueden tener espacios" << endl << endl;
 	cout <<"\tEscriba un nombre de usuario: ";  //Ingresa su usuario y contraseña
 	cin >> usuario;
 	cin.ignore();
