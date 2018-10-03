@@ -1,8 +1,4 @@
 admin admin
 
-ricardo 123
-
-Gerardo contraseña123456
-
-vc gfd
+user1 contra1
 
