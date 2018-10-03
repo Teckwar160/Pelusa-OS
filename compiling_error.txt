@@ -1,0 +1,8 @@
+In file included from /home/gerh2712/Documentos/Desarrollo/Pelusa-OS/main.cpp:3:0:
+/home/gerh2712/Documentos/Desarrollo/Pelusa-OS/sistemaDeArchivos.h: In function ‘std::__cxx11::string createDir()’:
+/home/gerh2712/Documentos/Desarrollo/Pelusa-OS/sistemaDeArchivos.h:11:8: error: ambiguating new declaration of ‘std::__cxx11::string createDir()’
+ string createDir(){
+        ^~~~~~~~~
+/home/gerh2712/Documentos/Desarrollo/Pelusa-OS/sistemaDeArchivos.h:2:6: note: old declaration ‘void createDir()’
+ void createDir();
+      ^~~~~~~~~

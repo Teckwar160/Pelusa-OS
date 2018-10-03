@@ -4,11 +4,12 @@ void deleteDir();
 void createArch();
 void deleteArch();
 
+
 //Funciones
 
 //Función que permite crear un directorio
 void createDir(){
-
+  string ruta;
 
 }
 
