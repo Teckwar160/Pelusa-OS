@@ -3,17 +3,16 @@
 #include <stdlib.h>
 #include <fstream>
 
+using namespace std;
+//Definicion de procesos
+
 void bienvenida (); //Menu de bienvenida al usuario
 void registro(); //Menu de registro de usuarios
 void login (); //Menu para iniciar sesion de usuarios
-void baseDeDatos(); //Preview de función que permite hacer conexión con la base de datos
-
-using namespace std;
-
 
 //Zona de Variables
-bool control = false; //variable que controla la entrada al sistema
 
+bool control = false; //variable que controla la entrada al sistema
 
 //Zona de procesos
 
@@ -21,55 +20,46 @@ bool control = false; //variable que controla la entrada al sistema
 
 void bienvenida (){
 	char decision;
-  //FIXME: Hay que resolver esta variable, no me permite mostrar la cadena de texto completa
-  //char version[6]='canary';
-  int oportunidades=1, limiteO=3;
 
-  while (oportunidades <=limiteO){ //Bucle que hace que solo puedan usar dos opciones, y da solamente 3 oportunidades
+ while (decision == 'a','A' or decision == 'b','B'){ //Bucle que hace que solo puedan usar dos opciones
+ 	system("clear");
+ 	cout << "\tPelusa OS 0.01" << endl << endl; //Mensaje del sistema
 
-   //FIXME: Resolver variable version
-	 	cout << "Pelusa OS 0.01-canary"<< endl << endl; //Mensaje del sistema
+ 	cout << "Elija una opcion"<< endl;
+ 	cout << "\ta) Usuario Registrado" << endl     //Opciones que puede elegir
+ 	     << "\tb) Usuario No Registrado" << endl;
+ 	cout << "=> "; cin >> decision;
 
-	 	cout << "Elija una opcion"<< endl;
-	 	cout << "\ta) Usuario Registrado" << endl     //Opciones que puede elegir
-	 	     << "\tb) Usuario No Registrado" << endl;
-	 	cout << "=> "; cin >> decision;
+ 	if (decision == 'A' or decision == 'a'){ //En caso de que sea la primera
+ 		system("clear");
+ 		login (); break;
+ 	}
 
-    /* He modificado el condicional para que tome en cuenta la posibilidad de que el usuario no introduzca una opción válida, devuelva un mensaje pidiendo que lo intente de nuevo, y poniendo un máximo de 3 oportunidades */
-	 	if (decision == 'A' or decision == 'a'){
-	 		login (); break;
-	 	}else if(decision == 'B' or decision == 'b'){
-      registro (); break;
-    }else {
-
-      if (oportunidades<limiteO) {
-        system("clear");
-        cout << "Por favor, introduce una opción válida"<<endl;
-        cout << "Intenta nuevamente \n" << endl;
-        oportunidades+=1;
-        cout << "Te quedan "<< limiteO-oportunidades << " oportunidades, después el sistema se bloqueará\n";
-      }else {
-        system("clear");
-        cout << "El límite de posibilidades se ha excedido, sistema bloqueado\n";
-        oportunidades+=1;
-      }
-
-    }
-
-  }
-
-
-
+ 	if (decision == 'B' or decision == 'b'){ //En caso que sea la segunda
+ 		system("clear");
+ 		registro (); break;
+ 	}
+ }
+ system("clear");
 }
 
 /*Registro*/
 
 void registro(){
 	ofstream archivo; //Libreria que maneja los archivos txt
-	string usuario,contra; //Usuario y contraseña escritos por el usuario
+	string usuario,contra,lectura_usuario; //Usuario y contraseña escritos por el usuario
+	ifstream comprobador;
+	bool user_doble;
+	bool salida;
 
 	system("clear");
+	do{
+	user_doble = false;
+	salida = false;
 	archivo.open("usuarios.txt",ios::app); //Crea el archvio sino existe y si existe solo lo abre
+	comprobador.open("usuarios.txt"); //Comprobador de disponibilidad del nombre de usuario
+	comprobador >> lectura_usuario;
+
 
     //Condicion por si falla el docuemento
 	if (archivo.fail()){
@@ -80,40 +70,67 @@ void registro(){
 	cout <<"\tEscriba un nombre de usuario: ";  //Ingresa su usuario y contraseña
 	cin >> usuario;
 	cin.ignore();
-	cout << "\tEscriba una contraseña: ";
+	cout << "\tEscriba una contraseña: "; 
 	cin >> contra;
-	cin.ignore();
+	cin.ignore ();
 
-	archivo << usuario << " " << contra << endl << endl; //Los guarda en el txt
-	archivo.close();                                     //Se cierra el archivo
-   system("clear");
+	while(!comprobador.eof()){  //Comprobador 
+		if (lectura_usuario == usuario){ //Si existe ya el nombre manda mensaje de error
+			system("clear");
+			cout << "Aviso: El usuario ya esta en uso" << endl << endl;
+			user_doble = true;
+
+		}
+		comprobador >> lectura_usuario;
+	}
+
+	if (user_doble == false){ //Si esta disponible guarda la informacion
+		archivo << usuario << " " << contra << endl << endl;
+		salida = true;
+	}
+
+	archivo.close();             //Se cierra el archivo
+	comprobador.close();         //Se cierra el comprobador
+    }while(user_doble != false);
+
+   if (salida == true){
+   	system("clear");
    cout << "Aviso: Usuario Registrado" << endl<< endl; //Mensaje del sistema
-   return bienvenida ();                               //Regresa al menu de bienvenida
+   return bienvenida ();    //Regresa al menu de bienvenida
+   }                           
 }
 
-/*Login*/
+/*Login*/ 
 
 void login (){
-	bool validacion = false; //Valida el inicio de sesion
-	ifstream archivo;
+	bool validacion = false; //Valida el inicio de sesion 
+	bool error_inicio = false;
+	ifstream archivo; 
 	string usuario,lectura_usuario,contra,lectura_contra; //variables de lectura adelantada y variables metidas por el usuario
 
 	do{
     archivo.open("usuarios.txt",ios::out); //Abre el archivo en mode de lectura
     archivo >> lectura_usuario; //Lectura adelantada del usuario
-	cout <<"\tUsuario: ";
-	cin >> usuario;
+	cout <<"\tUsuario: "; 
+	cin >> usuario; 
 	cin.ignore ();
-	cout <<"\tContraseña: ";
-	cin >> contra;
+	cout <<"\tContraseña: "; 
+	cin >> contra; 
 	cin.ignore ();
 
 	while(!archivo.eof()){ //Bucle que mientras el archivo no se haya leido completamente haga
         archivo >> lectura_contra; //LEctura adelantada de la contraseña
 		if (lectura_usuario == usuario and lectura_contra == contra){ //Si coinciden valida el inisio de sesion
 			validacion = true; break;
+		}else{
+			error_inicio = true; //Manda error si esta mal el ususario io la contraseña
 		}
 		archivo >> lectura_usuario; //Lectura del usuario esta linea evita errores con las contraseña de los usuarios
+	}
+
+	if (error_inicio = true){ //Mensaje de error
+		system("clear");
+		cout << "Aviso: Usuario io contraseña incorrectos" << endl << endl;
 	}
 
 	archivo.close (); //Cierra el archivo
@@ -122,12 +139,6 @@ void login (){
     if (validacion == true){ //Valida la entrada al sistema
     	system("clear");
     	control = true;
-
+    	
     }
-}
-
-/* baseDeDatos */
-
-void baseDeDatos(/* parámetros de la conexión con MariaDB */) {
-	/* code */
 }
