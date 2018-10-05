@@ -8,7 +8,8 @@ int main (){
 	}else {
 		cout << "Bienvenido a Pelusa OS" << endl; //En caso contrario ya entra al sistema
 	}
-
-
+	
+	//Solamente quiero hacer un comentario para confirmar que todo esté bien configurado en git
+	
 	return 0;
 }
