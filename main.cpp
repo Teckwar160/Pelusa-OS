@@ -1,4 +1,15 @@
-#include "includes.h"
+//#include "includes.h"
+#include <iostream>
+#include <string.h>
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <fstream>
+#include <dirent.h>
+#include <ncurses.h>
+
+using namespace std;
+
 #include "manejoDeUsuarios.h"
 #include "sistemaDeArchivos.h"
 
