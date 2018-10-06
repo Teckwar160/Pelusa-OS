@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
+#include <string.h>
 
 using namespace std;
 //Definicion de procesos
-
 void bienvenida (); //Menu de bienvenida al usuario
 void registro(); //Menu de registro de usuarios
 void login (); //Menu para iniciar sesion de usuarios
@@ -29,6 +29,7 @@ void bienvenida (){
  	cout << "\ta) Usuario Registrado" << endl     //Opciones que puede elegir
  	     << "\tb) Usuario No Registrado" << endl;
  	cout << "=> "; cin >> decision;
+ 	cin.ignore();
 
  	if (decision == 'A' or decision == 'a'){ //En caso de que sea la primera
  		system("clear");
@@ -67,10 +68,11 @@ void registro(){
 		exit (1);
 	}
 
-    cout << "Nota: El usuario y la contraseña no pueden tener espacios" << endl << endl;
+    cout << "Nota: El usuario y la contraseña no pueden tener espacios o se ignorara" << endl << endl;
 	cout <<"\tEscriba un nombre de usuario: ";  //Ingresa su usuario y contraseña
 	cin >> usuario;
 	cin.ignore();
+
 	cout << "\tEscriba una contraseña: "; 
 	cin >> contra;
 	cin.ignore ();
@@ -98,7 +100,8 @@ void registro(){
    	system("clear");
    cout << "Aviso: Usuario Registrado" << endl<< endl; //Mensaje del sistema
    return bienvenida ();    //Regresa al menu de bienvenida
-   }                           
+   }    
+                         
 }
 
 /*Login*/ 
@@ -143,3 +146,4 @@ void login (){
     	
     }
 }
+
