@@ -6,5 +6,3 @@ user2 contra2
 
 user3 contra3
 
-user4 contra4
-
