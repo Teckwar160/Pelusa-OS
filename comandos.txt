@@ -1,0 +1,4 @@
+========================Comandos========================
+
+"lis" = muestra los comandos que hay en el sistema.
+"exit" = cierra el sistema.
