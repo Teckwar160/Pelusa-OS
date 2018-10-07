@@ -1,6 +1,2 @@
-admin admin
-
 user1 contra1
-
-Gerardo contraseña123456
 
