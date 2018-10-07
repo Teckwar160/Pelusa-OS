@@ -1,7 +1,2 @@
 user1 contra1
 
-<<<<<<< HEAD
-user3 contra3
-
-=======
->>>>>>> 24205f54b95a1cfa26b4dbc434e489073fa6027f
