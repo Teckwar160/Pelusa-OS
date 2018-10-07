@@ -13,7 +13,6 @@ void login (); //Menu para iniciar sesion de usuarios
 //Zona de Variables
 
 bool control = false; //variable que controla la entrada al sistema
-char user_global[20];
 
 //Zona de procesos
 
@@ -141,7 +140,6 @@ void login (){
 	do{
     archivo.open("usuarios.txt",ios::out); //Abre el archivo en mode de lectura
     archivo >> lectura_usuario; //Lectura adelantada del usuario
-    archivo >>user_global; //lectura del usuario global
 	cout <<"\tUsuario: "; 
 	cin >> usuario; 
 	cin.ignore ();
@@ -157,7 +155,7 @@ void login (){
 			error_inicio = true; //Manda error si esta mal el ususario io la contraseña
 		}
 		archivo >> lectura_usuario; //Lectura del usuario esta linea evita errores con las contraseña de los usuarios
-		archivo >>user_global;
+
 	}
 
 	if (error_inicio = true){ //Mensaje de error
