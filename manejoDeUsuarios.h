@@ -70,7 +70,6 @@ void registro(){
 		exit (1);
 	}
 
-<<<<<<< HEAD
    cout << "Aviso: Si utiliza espacios estos no se tomaran en cuenta" << endl << endl;
 	cout <<"\tEscriba un nombre de usuario: ";  //Ingresa su usuario y contraseña
 
@@ -87,12 +86,8 @@ void registro(){
 		a++;
 	}
 
-=======
     cout << "Nota: El usuario y la contraseña no pueden tener espacios o se ignorara" << endl << endl;
 	cout <<"\tEscriba un nombre de usuario: ";  //Ingresa su usuario y contraseña
-	cin >> usuario;
-	cin.ignore();
->>>>>>> 24205f54b95a1cfa26b4dbc434e489073fa6027f
 
 	cout << "\tEscriba una contraseña: "; 
 	std::cin.getline(contra,20);
