@@ -64,6 +64,22 @@ void comandos(){
 //Comando createrDir permite crear un directorio
 void createDir(){
 
+	//Variables
+	string comando;
+	bool salida=false;
+
+	salida = false;
+	string directorio; 
+
+		cout << "Por favor, ingresa el directorio que quieres crear:" << endl;
+		cout << "pelusa@pelusa:~ ";
+		cin >> directorio; 
+
+
+	if (comando == "?createDir"){
+		//Mostrar ayuda
+	}
+
 }
 
 //Comando deleteDir permite eliminar un directorio
