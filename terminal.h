@@ -16,6 +16,7 @@ void deleteDir();
 void createFile();
 void deleteFile();
 
+//TODO: Hay que trabajar en la creación de directorios
 
 //Variables globales
 	//Esta variables permite modificar la ruta del archivo sin tener que modificar en todo el programa ruta por ruta
