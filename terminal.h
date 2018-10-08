@@ -1,3 +1,7 @@
+/*Esta librería contiene a la terminal y los comandos que se pueden utilizar en ella, la función principal es la terminal y manda a llamar a los comandos solicitados. Existen distintos archivos de texto dentro de la carpeta llamada terminalComandos en donde cada archivo de texto corresponde a la respectiva descripción de un comando.*/
+
+//TODO: Hay que conectar las funciones con los archivos dentro de la carpeta terminalComandos
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -5,13 +9,21 @@
 #include <string.h>
 using namespace std;
 
-
+//Zona de prototipos
 
 void comandos();
+void createDir();
+void deleteDir();
+void createFile();
+void deleteFile();
 
+
+
+//Función principal
 void terminal(){
-	//Variables
 
+
+	//Variables
 	string comando;
 	bool salida;
 
@@ -44,4 +56,24 @@ void comandos(){
 		cout << texto << endl;
 	}
 	archivo.close();
+}
+
+//Comando createrDir permite crear un directorio
+void createDir(){
+
+}
+
+//Comando deleteDir permite eliminar un directorio
+void deleteDir(){
+
+}
+
+//Comando createFile permite crear un archivo
+void createFile(){
+
+}
+
+//Comando deleteFile() permite eliminar un archivo 
+void deleteFile(){
+
 }
