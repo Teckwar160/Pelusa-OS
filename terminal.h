@@ -37,7 +37,7 @@ void terminal(){
 			salida = true;
 		}
 
-		if (comando == "list"){
+		if (comando == "help"){
 			comandos();
 		}
 
@@ -73,7 +73,7 @@ void createFile(){
 
 }
 
-//Comando deleteFile() permite eliminar un archivo 
+//Comando deleteFile permite eliminar un archivo 
 void deleteFile(){
 
 }
