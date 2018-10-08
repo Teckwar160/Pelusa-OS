@@ -1,6 +1,5 @@
 /*Esta librería contiene a la terminal y los comandos que se pueden utilizar en ella, la función principal es la terminal y manda a llamar a los comandos solicitados. Existen distintos archivos de texto dentro de la carpeta llamada terminalComandos en donde cada archivo de texto corresponde a la respectiva descripción de un comando.*/
 
-//TODO: Hay que crear una variable que permita modificar las rutas más facilmente
 
 #include <iostream>
 #include <stdio.h>
