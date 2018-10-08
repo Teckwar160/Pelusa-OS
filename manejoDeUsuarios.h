@@ -14,10 +14,11 @@ void login (); //Menu para iniciar sesion de usuarios
 
 bool control = false; //variable que controla la entrada al sistema
 
+
 //Zona de procesos
 
-/*Bienvenida*/
 
+/*Bienvenida*/
 void bienvenida (){
 	char decision;
 
@@ -44,8 +45,8 @@ void bienvenida (){
  system("clear");
 }
 
-/*Registro*/
 
+/*Registro*/
 void registro(){
 	ofstream archivo; //Libreria que maneja los archivos txt
 	ifstream comprobador; //comprueba si ya exite el usuario
@@ -60,8 +61,8 @@ void registro(){
 	do{
 	user_doble = false;
 	salida = false;
-	archivo.open("usuarios.txt",ios::app); //Crea el archvio sino existe y si existe solo lo abre
-	comprobador.open("usuarios.txt"); //Comprobador de disponibilidad del nombre de usuario
+	archivo.open("dtUsuarios/usuarios.txt",ios::app); //Crea el archvio sino existe y si existe solo lo abre
+	comprobador.open("dtUsuarios/usuarios.txt"); //Comprobador de disponibilidad del nombre de usuario
 	comprobador >> lectura_usuario;
 
     //Condicion por si falla el docuemento
@@ -129,8 +130,8 @@ void registro(){
                          
 }
 
-/*Login*/ 
 
+/*Login*/ 
 void login (){
 	bool validacion = false; //Valida el inicio de sesion 
 	bool error_inicio = false;
@@ -138,7 +139,7 @@ void login (){
 	string usuario,lectura_usuario,contra,lectura_contra; //variables de lectura adelantada y variables metidas por el usuario
 
 	do{
-    archivo.open("usuarios.txt",ios::out); //Abre el archivo en mode de lectura
+    archivo.open("dtUsuarios/usuarios.txt",ios::out); //Abre el archivo en mode de lectura
     archivo >> lectura_usuario; //Lectura adelantada del usuario
 	cout <<"\tUsuario: "; 
 	cin >> usuario; 
