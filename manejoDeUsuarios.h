@@ -13,7 +13,7 @@ void registro(); //Menu de registro de usuarios
 void login (); //Menu para iniciar sesion de usuarios
 
 //Zona de Variables
-
+string rutaUsuarios = "dtUsuarios/usuarios.txt"; // Permite cambiar la ruta del archivo de matera dinámica
 bool control = false; //variable que controla la entrada al sistema
 
 
@@ -63,8 +63,8 @@ void registro(){
 	do{
 	user_doble = false;
 	salida = false;
-	archivo.open("dtUsuarios/usuarios.txt",ios::app); //Crea el archvio sino existe y si existe solo lo abre
-	comprobador.open("dtUsuarios/usuarios.txt"); //Comprobador de disponibilidad del nombre de usuario
+	archivo.open(rutaUsuarios,ios::app); //Crea el archvio sino existe y si existe solo lo abre
+	comprobador.open(rutaUsuarios); //Comprobador de disponibilidad del nombre de usuario
 	comprobador >> lectura_usuario;
 
     //Condicion por si falla el docuemento
@@ -141,7 +141,7 @@ void login (){
 	string usuario,lectura_usuario,contra,lectura_contra; //variables de lectura adelantada y variables metidas por el usuario
 
 	do{
-    archivo.open("dtUsuarios/usuarios.txt",ios::out); //Abre el archivo en mode de lectura
+    archivo.open(rutaUsuarios,ios::out); //Abre el archivo en mode de lectura
     archivo >> lectura_usuario; //Lectura adelantada del usuario
 	cout <<"\tUsuario: "; 
 	cin >> usuario; 
