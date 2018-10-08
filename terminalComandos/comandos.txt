@@ -1,4 +1,5 @@
 ========================Comandos========================
 
-"lis" = muestra los comandos que hay en el sistema.
+"help" = Muestra los comandos que hay en el sistema.
+    "helpComando" = Da información pertinente al comando solicitado
 "exit" = cierra el sistema.

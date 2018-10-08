@@ -47,7 +47,7 @@ void terminal(){
 void comandos(){
 	ifstream archivo;
 	string texto;
-	archivo.open("comandos.txt",ios::in);
+	archivo.open("terminalComandos/comandos.txt",ios::in);
 	if(archivo.fail()){
 		cout << endl << "No se pudo abrir el archivo" << endl << endl;
 	}
