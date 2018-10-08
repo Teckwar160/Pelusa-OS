@@ -1,6 +1,6 @@
 /*Esta librería contiene a la terminal y los comandos que se pueden utilizar en ella, la función principal es la terminal y manda a llamar a los comandos solicitados. Existen distintos archivos de texto dentro de la carpeta llamada terminalComandos en donde cada archivo de texto corresponde a la respectiva descripción de un comando.*/
 
-//TODO: Hay que conectar las funciones con los archivos dentro de la carpeta terminalComandos
+//TODO: Hay que crear una variable que permita modificar las rutas más facilmente
 
 #include <iostream>
 #include <stdio.h>
@@ -18,6 +18,9 @@ void createFile();
 void deleteFile();
 
 
+//Variables globales
+	//Esta variables permite modificar la ruta del archivo sin tener que modificar en todo el programa ruta por ruta
+	string rutaComando = "terminalComandos/comandos.txt";
 
 //Función principal
 void terminal(){
@@ -47,7 +50,7 @@ void terminal(){
 void comandos(){
 	ifstream archivo;
 	string texto;
-	archivo.open("terminalComandos/comandos.txt",ios::in);
+	archivo.open(rutaComando,ios::in);
 	if(archivo.fail()){
 		cout << endl << "No se pudo abrir el archivo" << endl << endl;
 	}

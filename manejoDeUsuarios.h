@@ -4,6 +4,8 @@
 #include <fstream>
 #include <string.h>
 
+//TODO: Hay que crear una variable que permita modificar las rutas más facilmente
+
 using namespace std;
 //Definicion de procesos
 void bienvenida (); //Menu de bienvenida al usuario
