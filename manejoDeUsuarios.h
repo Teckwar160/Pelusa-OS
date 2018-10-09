@@ -1,8 +1,3 @@
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <fstream>
-#include <string.h>
 
 //TODO: Hay que proteger la escritura de contraseña
 

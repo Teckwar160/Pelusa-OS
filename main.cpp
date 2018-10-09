@@ -1,3 +1,11 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fstream>
+#include <string.h>
+using namespace std;
+
+
 #include "manejoDeUsuarios.h"
 #include "terminal.h"
 
@@ -10,7 +18,7 @@ int main (){
 	cout << "Bienvenido a Pelusa OS" << endl; //En caso contrario ya entra al sistema
 
 	terminal();
-	
+
 }
 
 
