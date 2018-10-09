@@ -5,6 +5,7 @@
 void help();
 void createDir();
 void deleteDir();
+void helpCreateDir();
 void createFile();
 void deleteFile();
 
@@ -36,12 +37,15 @@ void terminal(){
 			createDir();
 		}else if (comando == "deleteDir"){
 			deleteDir();
+		}else if (comando == "?createDir" || comando == "?deleteDir"){
+			helpCreateDir();
 		}else if (comando == "createFile"){
 			createFile();
 		}else if (comando == "deleteFile"){
 			deleteFile();
 		}else {
-			cout << "El comando no se reconoce, intente con '?' para obtener ayuda"<< endl;
+			cout << "\nEl comando no se reconoce, intente con '?' para obtener ayuda"<< endl;
+			cout << "\n";
 		}
 
 	}while(salida != true);
@@ -76,9 +80,10 @@ void createDir(){
 		cin >> directorio; 
 
 
-	if (comando == "?createDir"){
-		//Mostrar ayuda
-	}
+}
+
+//Comando ?createDir brinda información sobre el manejo de directorios
+void helpCreateDir(){
 
 }
 
