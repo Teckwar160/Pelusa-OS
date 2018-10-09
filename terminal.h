@@ -10,7 +10,7 @@ using namespace std;
 
 //Zona de prototipos
 
-void comandos();
+void help();
 void createDir();
 void deleteDir();
 void createFile();
@@ -38,16 +38,24 @@ void terminal(){
 
 		if (comando == "exit"){
 			salida = true;
-		}
-
-		if (comando == "help"){
-			comandos();
+		}else if (comando == "?"){
+			help();
+		}else if (comando == "createDir"){
+			createDir();
+		}else if (comando == "deleteDir"){
+			deleteDir();
+		}else if (comando == "createFile"){
+			createFile();
+		}else if (comando == "deleteFile"){
+			deleteFile();
+		}else {
+			cout << "El comando no se reconoce, intente con '?' para obtener ayuda"<< endl;
 		}
 
 	}while(salida != true);
 }
 
-void comandos(){
+void help(){
 	ifstream archivo;
 	string texto;
 	archivo.open(rutaComando,ios::in);
@@ -66,13 +74,13 @@ void createDir(){
 
 	//Variables
 	string comando;
-	bool salida=false;
+	//bool salida=false;
 
-	salida = false;
+	//salida = false;
 	string directorio; 
 
-		cout << "Por favor, ingresa el directorio que quieres crear:" << endl;
-		cout << "pelusa@pelusa:~ ";
+		cout << "pelusa@pelusa:~ Por favor, ingresa el directorio que quieres crear:" << endl;
+		cout << "\npelusa@pelusa:~ ";
 		cin >> directorio; 
 
 

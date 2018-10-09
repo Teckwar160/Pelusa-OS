@@ -1,5 +1,6 @@
 ========================Comandos========================
 
-"help" = Muestra los comandos que hay en el sistema.
-    "helpComando" = Da información pertinente al comando solicitado
-"exit" = cierra el sistema.
+"?" = Muestra los comandos que hay en el sistema.
+    "?comando" = Da información pertinente al comando solicitado
+
+"exit" = Termina con la ejecución del sistema. 
