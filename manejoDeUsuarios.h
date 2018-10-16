@@ -18,8 +18,8 @@ bool control = false; //variable que controla la entrada al sistema
 /*Bienvenida*/
 void bienvenida (){
 	char decision;
-
- while (decision == 'a','A' or decision == 'b','B'){ //Bucle que hace que solo puedan usar dos opciones
+	
+    do{ //Bucle que hace que solo puedan usar dos opciones
  	system("clear");
  	cout << "\tPelusa OS 0.01" << endl << endl; //Mensaje del sistema
 
@@ -43,7 +43,7 @@ void bienvenida (){
 	if(toupper(decision) == 'C'){
 		exit(0);
 	}
- }
+ }while(toupper(decision)=='A' || toupper(decision)=='B' || toupper(decision)=='C');
  system("clear");
 }
 
