@@ -1,5 +1,8 @@
-
-//TODO: Hay que proteger la escritura de contraseña
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fstream>
+#include <string.h>
 
 using namespace std;
 //Definicion de procesos
@@ -8,9 +11,8 @@ void registro(); //Menu de registro de usuarios
 void login (); //Menu para iniciar sesion de usuarios
 
 //Zona de Variables
-string rutaUsuarios = "dtUsuarios/usuarios.txt"; // Permite cambiar la ruta del archivo de matera dinámica
-bool control = false; //variable que controla la entrada al sistema
 
+bool control = false; //variable que controla la entrada al sistema
 
 //Zona de procesos
 
@@ -25,8 +27,7 @@ void bienvenida (){
 
  	cout << "Elija una opcion"<< endl;
  	cout << "\ta) Usuario Registrado" << endl     //Opciones que puede elegir
- 	     << "\tb) Usuario No Registrado" << endl
-		<< "\tc) Salir" << endl;
+ 	     << "\tb) Usuario No Registrado" << endl;
  	cout << "=> "; cin >> decision;
  	cin.ignore();
 
@@ -39,10 +40,6 @@ void bienvenida (){
  		system("clear");
  		registro (); break;
  	}
-
-	if(decision == 'C' || decision== 'c'){
-		exit(0);
-	}
  }
  system("clear");
 }
@@ -63,8 +60,8 @@ void registro(){
 	do{
 	user_doble = false;
 	salida = false;
-	archivo.open(rutaUsuarios,ios::app); //Crea el archvio sino existe y si existe solo lo abre
-	comprobador.open(rutaUsuarios); //Comprobador de disponibilidad del nombre de usuario
+	archivo.open("usuarios.txt",ios::app); //Crea el archvio sino existe y si existe solo lo abre
+	comprobador.open("usuarios.txt"); //Comprobador de disponibilidad del nombre de usuario
 	comprobador >> lectura_usuario;
 
     //Condicion por si falla el docuemento
@@ -132,11 +129,13 @@ void registro(){
                          
 }
 
+/*Login*/ 
 
 /*Login*/ 
 void login (){
 	bool validacion = false; //Valida el inicio de sesion 
 	bool error_inicio = false;
+	string rutaUsuarios = "dtUsuarios/usuarios.txt";
 	ifstream archivo; 
 	string usuario,lectura_usuario,contra,lectura_contra; //variables de lectura adelantada y variables metidas por el usuario
 
@@ -159,6 +158,11 @@ void login (){
 		}
 		archivo >> lectura_usuario; //Lectura del usuario esta linea evita errores con las contraseña de los usuarios
 
+	}
+
+	if (error_inicio = true){ //Mensaje de error
+		system("clear");
+		cout << "Aviso: Usuario i/o contraseña incorrectos" << endl << endl;
 	}
 
 	if (error_inicio = true){ //Mensaje de error

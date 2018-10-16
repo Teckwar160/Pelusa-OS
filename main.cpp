@@ -16,7 +16,6 @@ int main (){
 	}
 
 	cout << "Bienvenido a Pelusa OS" << endl; //En caso contrario ya entra al sistema
-
-	terminal(); 
-	
 }
+
+
