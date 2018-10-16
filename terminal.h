@@ -9,6 +9,7 @@ void helpCreateDir();
 void createFile();
 void deleteFile();
 
+
 //TODO: Hay que trabajar en la creación de directorios
 
 //Variables globales (para esta librería)
@@ -95,9 +96,34 @@ void deleteDir(){
 //Comando createFile permite crear un archivo
 void createFile(){
 
+	string rutafichero;
+	ofstream archivo;
+	string nombre;
+	string carpetaFichero = "ficheros/";
+
+	cout << endl << "Ingresa el nombre del archivo: ";
+	cin >> nombre;
+	cin.ignore();
+
+	rutafichero = carpetaFichero+nombre+".txt";
+	archivo.open(rutafichero,ios::out);
+
+	if (archivo.fail()){
+		cout << "El archivo no se pudo abrir";
+        exit(1);		
+	}
+	archivo.close();	
+
+	if(!archivo.fail()){
+		cout << endl<< "El archivo se creo con exito" << endl << endl;
+	}
+
+
 }
 
 //Comando deleteFile permite eliminar un archivo 
 void deleteFile(){
 
 }
+
+

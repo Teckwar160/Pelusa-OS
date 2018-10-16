@@ -4,3 +4,5 @@
     "?comando" = Da información pertinente al comando solicitado
 
 "exit" = Termina con la ejecución del sistema. 
+
+"createFile" = Este comando crea un archivo de texto plano.

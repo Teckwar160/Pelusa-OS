@@ -25,7 +25,8 @@ void bienvenida (){
 
  	cout << "Elija una opcion"<< endl;
  	cout << "\ta) Usuario Registrado" << endl     //Opciones que puede elegir
- 	     << "\tb) Usuario No Registrado" << endl;
+ 	     << "\tb) Usuario No Registrado" << endl
+		<< "\tc) Salir" << endl;
  	cout << "=> "; cin >> decision;
  	cin.ignore();
 
@@ -38,6 +39,10 @@ void bienvenida (){
  		system("clear");
  		registro (); break;
  	}
+
+	if(decision == 'C' || decision== 'c'){
+		exit(0);
+	}
  }
  system("clear");
 }
