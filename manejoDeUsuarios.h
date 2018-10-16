@@ -30,17 +30,17 @@ void bienvenida (){
  	cout << "=> "; cin >> decision;
  	cin.ignore();
 
- 	if (decision == 'A' or decision == 'a'){ //En caso de que sea la primera
+ 	if (toupper(decision) == 'A'){ //En caso de que sea la primera
  		system("clear");
  		login (); break;
  	}
 
- 	if (decision == 'B' or decision == 'b'){ //En caso que sea la segunda
+ 	if (toupper(decision) == 'B'){ //En caso que sea la segunda
  		system("clear");
  		registro (); break;
  	}
 
-	if(decision == 'C' || decision== 'c'){
+	if(toupper(decision) == 'C'){
 		exit(0);
 	}
  }
