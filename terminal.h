@@ -8,6 +8,10 @@ void deleteDir();
 void helpCreateDir();
 void createFile();
 void deleteFile();
+void helpCreateFile();
+void clean();
+void helpClean();
+void helpDeleteFile();
 
 
 //TODO: Hay que trabajar en la creación de directorios
@@ -32,24 +36,45 @@ void terminal(){
 
 		if (comando == "exit"){
 			salida = true;
+		}else if (comando=="clean"){
+			clean();
+			cout << "\n";
+		}else if (comando=="?clean"){
+			helpClean();
+			cout << "\n";
 		}else if (comando == "?"){
 			help();
+			cout << "\n";
 		}else if (comando == "createDir"){
 			createDir();
+			cout << "\n";
 		}else if (comando == "deleteDir"){
 			deleteDir();
+			cout << "\n";
+			cout << "\n";
 		}else if (comando == "?createDir" || comando == "?deleteDir"){
 			helpCreateDir();
+			cout << "\n";
 		}else if (comando == "createFile"){
 			createFile();
+			cout << "\n";
 		}else if (comando == "deleteFile"){
 			deleteFile();
-		}else {
+			cout << "\n";
+		}else if (comando == "?createFile"){
+			helpCreateFile();
+			cout << "\n";
+		}else if(comando=="?deleteFile"){
+			helpDeleteFile();
+			cout << "\n";
+		}else{
 			cout << "\nEl comando no se reconoce, intente con '?' para obtener ayuda"<< endl;
 			cout << "\n";
 		}
 
 	}while(salida != true);
+
+	cout << "\n" << endl;
 }
 
 void help(){
@@ -64,6 +89,20 @@ void help(){
 		cout << texto << endl;
 	}
 	archivo.close();
+}
+
+// Enlista los archivos y directorios
+void list(){
+
+}
+
+//Limpia la pantalla
+void clean(){
+	system("clear");
+}
+
+void helpClean(){
+	cout << "\n\tclean: Limpia la pantalla" << endl;
 }
 
 //Comando createrDir permite crear un directorio
@@ -85,7 +124,6 @@ void createDir(){
 
 //Comando ?createDir brinda información sobre el manejo de directorios
 void helpCreateDir(){
-
 }
 
 //Comando deleteDir permite eliminar un directorio
@@ -95,7 +133,6 @@ void deleteDir(){
 
 //Comando createFile permite crear un archivo
 void createFile(){
-
 	string rutafichero;
 	ofstream archivo;
 	string nombre;
@@ -113,8 +150,9 @@ void createFile(){
         exit(1);		
 	}
 	archivo.close();	
-
+   
 	if(!archivo.fail()){
+		 system("clear");
 		cout << endl<< "El archivo se creo con exito" << endl << endl;
 	}
 
@@ -123,7 +161,27 @@ void createFile(){
 
 //Comando deleteFile permite eliminar un archivo 
 void deleteFile(){
+	string name;
+    string rutaFichero;	
+	string carpetaFichero = "ficheros/";
+	cout << "Ingresa el nombre del archivo a eliminar: ";
+    cin >> name; 
+	cin.ignore();
 
+	rutaFichero = carpetaFichero + name + ".txt";
+
+   remove(rutaFichero.c_str());
+
+   cout << "El archivo se elimino correctamente" << endl << endl;
+}
+
+//Comando ?createFile brinda información sobre la creación de archivos
+void helpCreateFile(){
+	cout << "\n\tcreateFile: Crea un archivo de texto plano" << endl;
+}
+
+void helpDeleteFile(){
+	cout << "\n\tdeleteFile: Elimina un archivo de texto plano" << endl;
 }
 
 

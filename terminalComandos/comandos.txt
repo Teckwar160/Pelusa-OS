@@ -3,6 +3,13 @@
 "?" = Muestra los comandos que hay en el sistema.
     "?comando" = Da información pertinente al comando solicitado
 
-"exit" = Termina con la ejecución del sistema. 
+"exit": Termina con la ejecución del sistema. 
 
-"createFile" = Este comando crea un archivo de texto plano.
+"clean": Permite limpiar la pantalla
+
+"createFile": Crea un archivo de texto plano.
+
+"deleteFile": Elimina un archivo de texto plano.
+
+"createDir": Crear un directorio
+
