@@ -109,15 +109,19 @@ void helpClean(){
 void createDir(){
 
 	//Variables
-	string comando;
+	string comando, ruta = "root/users/user1/home/";
 	//bool salida=false;
 
 	//salida = false;
 	string directorio; 
 
 		cout << "pelusa@pelusa:~ Por favor, ingresa el directorio que quieres crear:" << endl;
-		cout << "\npelusa@pelusa:~ ";
+		cout << "\npelusa@createDir:~ ";
 		cin >> directorio; 
+
+		ruta = ruta + directorio;
+
+		mkdir(ruta.c_str(), 0777);
 
 
 }
