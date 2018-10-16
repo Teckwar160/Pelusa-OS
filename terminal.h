@@ -9,7 +9,8 @@ void helpCreateDir();
 void createFile();
 void deleteFile();
 void helpCreateFile();
-void clean();
+void clean(string ruta = "");
+void list();
 void helpClean();
 void helpDeleteFile();
 
@@ -44,6 +45,9 @@ void terminal(){
 			cout << "\n";
 		}else if (comando == "?"){
 			help();
+			cout << "\n";
+		}else if(comando == "list"){
+			list();
 			cout << "\n";
 		}else if (comando == "createDir"){
 			createDir();
@@ -93,11 +97,17 @@ void help(){
 
 // Enlista los archivos y directorios
 void list(){
-
+	system("ls");
 }
 
 //Limpia la pantalla
-void clean(){
+void clean(string ruta = ""){
+
+	if(ruta!=""){
+		system(ruta.c_str());
+		system("clear");
+	}
+
 	system("clear");
 }
 
@@ -122,6 +132,9 @@ void createDir(){
 		ruta = ruta + directorio;
 
 		mkdir(ruta.c_str(), 0777);
+
+		list();
+		cout << "\n";
 
 
 }
